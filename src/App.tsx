@@ -778,7 +778,7 @@ const PokerMathQuiz = () => {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center">
               <Spade className="w-6 h-6 mr-2 text-gray-700" />
-              <h1 className="text-lg font-bold text-gray-800">Luth's Poker Brain</h1>
+              <h1 className="text-lg font-bold text-gray-800">Poker Brain</h1>
             </div>
             <div className="flex items-center gap-3">
               <div className="text-sm font-semibold text-gray-600">
