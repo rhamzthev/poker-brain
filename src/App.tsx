@@ -14,6 +14,17 @@ interface PokerTerms {
   other: Term[],
 }
 
+interface SuitToChar {
+  [key: string]: string;
+}
+
+const SUIT_TO_CHAR: SuitToChar = {
+  "♣": "C",
+  "♦": "D",
+  "♥": "H",
+  "♠": "S",
+}
+
 // Poker terms dictionary
 const pokerTerms: PokerTerms = {
   positions: [
@@ -628,64 +639,25 @@ const PokerMathQuiz = () => {
     );
   };
 
+
   // Card rendering component with dynamic sizing
   const Card = ({ card, totalCards }: {card: Card; totalCards: number}) => {
-    const isRed = card.suit === '♥' || card.suit === '♦';
+    const cardString: string = card.rank + SUIT_TO_CHAR[card.suit];
     
-    // Dynamic sizing based on total cards
-    let sizeClass = "w-11 h-16 mx-0.5"; // normal
-    let fontSize = "text-lg";
-    let cornerSize = "text-xs";
-    if (totalCards <= 3) {
-      sizeClass = "w-14 h-20 mx-1"; // large
-      fontSize = "text-2xl";
-      cornerSize = "text-sm";
-    } else if (totalCards >= 6) {
-      sizeClass = "w-9 h-12 mx-0.5"; // small
-      fontSize = "text-base";
-      cornerSize = "text-xs";
-    }
+    // Dynamic sizing based on total number of cards
+    const getCardSize = () => {
+      if (totalCards <= 2) return "w-16 h-22"; // Large for hole cards only
+      if (totalCards <= 5) return "w-12 h-16"; // Medium for hole cards + flop
+      return "w-10 h-14"; // Smaller for full board
+    };
     
     return (
-      <div className={`${sizeClass} relative transform hover:scale-105 transition-transform duration-200 hover:z-10`}>
-        {/* Card shadow */}
-        <div className="absolute inset-0 bg-gray-800 rounded-lg transform translate-x-0.5 translate-y-0.5 blur-sm opacity-50"></div>
-        
-        {/* Main card */}
-        <div className={`${sizeClass} absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 border-2 border-gray-400 rounded-lg shadow-2xl overflow-hidden`}>
-          {/* Inner card design with pattern */}
-          <div className="absolute inset-0.5 bg-white rounded-sm">
-            {/* Decorative pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="h-full w-full" style={{
-                backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.03) 10px, rgba(0,0,0,0.03) 20px)`,
-              }}></div>
-            </div>
-          </div>
-          
-          {/* Top left corner */}
-          <div className={`absolute top-1 left-1 ${cornerSize} font-bold ${isRed ? "text-red-600" : "text-gray-900"} leading-3`}>
-            <div>{card.rank}</div>
-            <div style={{ marginTop: '-2px' }}>{card.suit}</div>
-          </div>
-          
-          {/* Bottom right corner (rotated) */}
-          <div className={`absolute bottom-1 right-1 ${cornerSize} font-bold ${isRed ? "text-red-600" : "text-gray-900"} leading-3 rotate-180`}>
-            <div>{card.rank}</div>
-            <div style={{ marginTop: '-2px' }}>{card.suit}</div>
-          </div>
-          
-          {/* Center content */}
-          <div className={`absolute inset-0 flex flex-col items-center justify-center ${fontSize} font-bold`}>
-            <div className={`${isRed ? "text-red-600" : "text-gray-900"} drop-shadow-sm`}>
-              {card.suit}
-            </div>
-          </div>
-          
-          {/* Card shine effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-white opacity-10 rounded-lg pointer-events-none"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white to-transparent opacity-10 rounded-lg pointer-events-none"></div>
-        </div>
+      <div className={`${getCardSize()} mx-0.5 overflow-hidden shadow-md`}>
+        <img 
+          src={`/src/assets/cards/${cardString}.svg`}
+          alt={`${card.rank} of ${card.suit}`}
+          className="w-full h-full object-contain"
+        />
       </div>
     );
   };
