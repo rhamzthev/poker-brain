@@ -654,7 +654,7 @@ const PokerMathQuiz = () => {
     return (
       <div className={`${getCardSize()} mx-0.5 overflow-hidden shadow-md`}>
         <img 
-          src={`/src/assets/cards/${cardString}.svg`}
+          src={`/cards/${cardString}.svg`}
           alt={`${card.rank} of ${card.suit}`}
           className="w-full h-full object-contain"
         />
