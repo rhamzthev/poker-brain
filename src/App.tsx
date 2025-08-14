@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Spade, Check, X, RotateCcw, HelpCircle } from "lucide-react";
+import { Check, X, RotateCcw, HelpCircle } from "lucide-react";
 
 // Wallpaper configuration
 const WALLPAPER_SIZE = "64px";
