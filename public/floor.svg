@@ -1,0 +1,24 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Navy Blue Background -->
+  <rect width="32" height="32" fill="#002040"/>
+  
+  <!-- 30x30 hollow rectangle in center (outline only) -->
+  <rect x="4" y="4" width="24" height="24" fill="none" stroke="#807030" stroke-width="2"/>
+  
+  <!-- Top Left -->
+  <rect x="11" y="0" width="2" height="13" fill="#807030"/>
+  <rect x="0" y="11" width="13" height="2" fill="#807030"/>
+
+  <!-- Top Right -->
+  <rect x="19" y="0" width="2" height="13" fill="#807030"/>
+  <rect x="19" y="11" width="13" height="2" fill="#807030"/>
+
+  <!-- Bottom Left -->
+  <rect x="0" y="19" width="13" height="2" fill="#807030"/>
+  <rect x="11" y="19" width="2" height="13" fill="#807030"/>
+
+  <!-- Bottom Right -->
+  <rect x="19" y="19" width="13" height="2" fill="#807030"/>
+  <rect x="19" y="19" width="2" height="13" fill="#807030"/>
+  
+</svg> 

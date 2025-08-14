@@ -1,1 +1,61 @@
 @import "tailwindcss";
+
+/* Custom font face for Avenir Regular */
+@font-face {
+  font-family: 'Avenir';
+  src: url('/Avenir Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom font face for High Empathy */
+@font-face {
+  font-family: 'High Empathy';
+  src: url('/High Empathy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Tailwind configuration */
+@layer base {
+  body {
+    font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+}
+
+/* Custom utilities for poker-specific styling */
+@layer utilities {
+  .font-avenir {
+    font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  .font-high-empathy {
+    font-family: 'High Empathy', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  .text-poker-gold {
+    color: #d0b090;
+  }
+  
+  .text-poker-blue {
+    color: #005090;
+  }
+
+  .text-poker-brown {
+    color: #301000;
+  }
+  
+  .bg-poker-blue {
+    background-color: #005090;
+  }
+  
+  .bg-poker-gold {
+    background-color: #d0b090;
+  }
+
+  .bg-poker-brown {
+    background-color: #301000;
+  }
+}
